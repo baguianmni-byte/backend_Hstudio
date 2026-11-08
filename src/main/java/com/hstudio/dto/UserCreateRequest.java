@@ -1,0 +1,17 @@
+package com.hstudio.dto;
+
+import com.hstudio.model.Role;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+/** D les informations requises pour cr un compte. */
+public record UserCreateRequest(
+        @NotBlank @Size(max = 100) String firstName,
+        @NotBlank @Size(max = 100) String lastName,
+        @NotBlank @Email @Size(max = 255) String email,
+        @NotBlank @Size(min = 8, max = 72) String password,
+        @NotNull Role role
+) {
+}
